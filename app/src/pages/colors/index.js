@@ -11,14 +11,15 @@ const li = color => {
 }
 
 class Colors extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = { colors: [] }
   }
   componentDidMount() {
-    fetch('http://localhost:5000')
+    fetch('http://localhost:5000/colors')
       .then(res => res.json())
       .then(colors => this.setState({ colors }))
+      .catch(err => console.log(err))
   }
 
   render() {
