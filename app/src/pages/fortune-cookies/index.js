@@ -1,30 +1,26 @@
 import React from 'react'
-import fetch from 'isomorphic-fetch'
 import { map } from 'ramda'
+import { connect } from 'react-redux'
 
 const li = fortune => {
   return <li key={fortune.id}>{fortune.value}</li>
 }
 
-class FortuneCookies extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { fortune: [] }
-  }
-  componentDidMount() {
-    fetch('http://localhost:5000/fortune-cookies')
-      .then(res => res.json())
-      .then(fortune => this.setState({ fortune }))
-  }
+const FortuneCookies = props => {
+  return (
+    <div>
+      <h1>Fortune Cookies</h1>
+      {map(li, props.fortune)}
+    </div>
+  )
+}
 
-  render() {
-    return (
-      <div>
-        <h1>Fortune Cookies</h1>
-        <ul>{map(li, this.state.fortune)}</ul>
-      </div>
-    )
+const mapStateToProps = state => {
+  return {
+    fortune: state.fortuneCookies
   }
 }
 
-export default FortuneCookies
+const connector = connect(mapStateToProps)
+
+export default connector(FortuneCookies)
