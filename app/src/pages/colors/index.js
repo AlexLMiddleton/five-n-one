@@ -18,8 +18,7 @@ class Colors extends React.Component {
   componentDidMount() {
     fetch('http://localhost:5000/colors')
       .then(res => res.json())
-      .then(colors => this.setState({ colors }))
-      .catch(err => console.log(err))
+      .then(colors => this.setState({ colors })) // really "({colors: colors})"  Or .then(apiColors => this.setState({colors: apiColors}))
   }
 
   render() {

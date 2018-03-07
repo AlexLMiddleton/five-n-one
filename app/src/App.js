@@ -1,9 +1,9 @@
 import React from 'react'
-import Colors from './pages/colors/index'
-import Buzzwords from './pages/buzzwords/index'
-import Emojis from './pages/emojis/index'
-import FortuneCookies from './pages/fortune-cookies/index'
-import StarWars from './pages/starwars/index'
+import Colors from './pages/colors'
+import Buzzwords from './pages/buzzwords'
+import Emojis from './pages/emojis'
+import FortuneCookies from './pages/fortune-cookies'
+import StarWars from './pages/starwars'
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 
 const Menu = props => {
